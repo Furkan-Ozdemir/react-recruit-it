@@ -18,20 +18,20 @@ const Main = () => {
         <Form />
       </div>
       <div>
-        <img
-          style={{
-            width: "100%",
-            maxWidth: " 500px",
-            height: "auto",
-            borderRadius: "3px",
-          }}
-          src="/images/capybara.webp"
-          alt="main"
-        />
+        <Image src="/images/capybara.webp" alt="main" />
       </div>
     </MainWrapper>
   );
 };
+const Image = styled.img`
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  border-radius: 3px;
+  box-shadow: 7px 7px 0px 0px rgba(0, 0, 0, 1);
+  -webkit-box-shadow: 7px 7px 0px 0px rgba(0, 0, 0, 1);
+  -moz-box-shadow: 7px 7px 0px 0px rgba(0, 0, 0, 1);
+`;
 const TextContainer = styled.div`
   margin-right: 30px;
   & h1 {
