@@ -1,26 +1,49 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
-
+import { useNavigate } from "react-router-dom";
 const Form = () => {
+  const [position, setPosition] = useState("");
+  const [language, setLanguage] = useState("");
+
+  let navigate = useNavigate();
+  const routeChange = (data) => {
+    let path = `/results`;
+    navigate(path, { state: data });
+  };
+
+  const handleFetch = async () => {
+    const query = `https://api.github.com/search/users?q=${position}&l=${language}`;
+    const response = await fetch(query);
+    const data = await response.json();
+    routeChange(data.items);
+  };
   return (
     <FormWrapper>
-      <FormContainer>
+      <FormContainer onSubmit={(e) => e.preventDefault()}>
         <BoxShadow>
           <input
             type="text"
             id="position"
             name="position"
             placeholder="Search for a position"
+            onChange={(e) => {
+              setPosition(e.target.value);
+            }}
+            value={position}
           />
 
           <input
             type="text"
             id="language"
             name="language"
-            placeholder="Kotlin"
+            placeholder="Kotlin, C#, Java, etc."
+            onChange={(e) => {
+              setLanguage(e.target.value);
+            }}
+            value={language}
           />
         </BoxShadow>
-        <Button type="submit" value="Search">
+        <Button type="submit" value="Search" onClick={handleFetch}>
           Search
         </Button>
       </FormContainer>
@@ -41,6 +64,7 @@ const Button = styled.button`
   -webkit-box-shadow: 10px 8px 0px 0px rgba(0, 0, 0, 1);
   -moz-box-shadow: 10px 8px 0px 0px rgba(0, 0, 0, 1);
   font-size: 1rem;
+  cursor: pointer;
 `;
 
 const BoxShadow = styled.span`

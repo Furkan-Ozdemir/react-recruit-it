@@ -44,6 +44,7 @@ const MainWrapper = styled.div`
   background-color: #fdf4e7;
   overflow: hidden;
   display: flex;
+  justify-content: space-evenly;
   padding: 40px;
   & h1 {
     font-size: 4rem;
