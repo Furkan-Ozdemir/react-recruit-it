@@ -12,6 +12,10 @@ const Form = () => {
   };
 
   const handleFetch = async () => {
+    if (position === "" || language === "") {
+      alert("Please fill out both fields");
+      return;
+    }
     const query = `https://api.github.com/search/users?q=${position}&l=${language}`;
     const response = await fetch(query);
     const data = await response.json();
