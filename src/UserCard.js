@@ -1,9 +1,12 @@
 import React from "react";
 import styled from "styled-components";
+import { useLocation } from "react-router-dom";
+import Tag from "./Tag";
 
 const UserCard = (props) => {
   const { avatar_url, login, html_url } = props;
-
+  const location = useLocation();
+  const { language, position } = location.state;
   return (
     <Div>
       <div
@@ -19,6 +22,10 @@ const UserCard = (props) => {
           alt="user avatar"
         />
         <h3>{login}</h3>
+        <div>
+          <Tag text={language} type="language" />
+          <Tag text={position} type="position" />
+        </div>
       </div>
       <button
         id="githubPage"
@@ -31,6 +38,8 @@ const UserCard = (props) => {
 };
 
 const Div = styled.div`
+  display: flex;
+  flex-direction: column;
   background-color: #fff;
   box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 1);
   -webkit-box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 1);
@@ -41,8 +50,7 @@ const Div = styled.div`
     text-decoration: none;
     color: #000;
     padding: 15px;
-    margin-bottom: 30px;
-    margin-left: 50px;
+    margin: 0px 20px 30px 20px;
     background: url(/images/search.png) no-repeat scroll 15px 17px;
     background-color: #c8befe;
     padding-left: 35px;

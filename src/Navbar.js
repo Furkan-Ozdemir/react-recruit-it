@@ -15,7 +15,7 @@ const Nav = styled.nav`
   & span {
     text-transform: uppercase;
     font-weight: bold;
-    font-size: 1.3rem;
+    font-size: 2rem;
   }
 `;
 

@@ -1,14 +1,15 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
-const Form = () => {
+const Form = (props) => {
+  const { buttonText } = props;
   const [position, setPosition] = useState("");
   const [language, setLanguage] = useState("");
 
   let navigate = useNavigate();
   const routeChange = (data) => {
     let path = `/results`;
-    navigate(path, { state: data });
+    navigate(path, { state: { data, language, position } });
   };
 
   const handleFetch = async () => {
@@ -16,14 +17,19 @@ const Form = () => {
       alert("Please fill out both fields");
       return;
     }
-    const query = `https://api.github.com/search/users?q=${position}&l=${language}`;
-    const response = await fetch(query);
-    const data = await response.json();
-    routeChange(data.items);
+    try {
+      const query = `https://api.github.com/search/users?q=${position}&l=${language}`;
+      const response = await fetch(query);
+      const data = await response.json();
+      routeChange(data.items);
+    } catch (error) {
+      alert("Something went wrong");
+      window.location.reload();
+    }
   };
   return (
     <FormWrapper>
-      <FormContainer onSubmit={(e) => e.preventDefault()}>
+      <FormContainer id="searchForm" onSubmit={(e) => e.preventDefault()}>
         <BoxShadow>
           <input
             type="text"
@@ -48,7 +54,7 @@ const Form = () => {
           />
         </BoxShadow>
         <Button type="submit" value="Search" onClick={handleFetch}>
-          Search
+          {buttonText || "Search"}
         </Button>
       </FormContainer>
     </FormWrapper>
