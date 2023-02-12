@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/react-recruit-it/static/css/main.93ab5f18.css",
+    "main.js": "/react-recruit-it/static/js/main.7790369f.js",
+    "index.html": "/react-recruit-it/index.html",
+    "main.93ab5f18.css.map": "/react-recruit-it/static/css/main.93ab5f18.css.map",
+    "main.7790369f.js.map": "/react-recruit-it/static/js/main.7790369f.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.93ab5f18.css",
+    "static/js/main.7790369f.js"
+  ]
+}
