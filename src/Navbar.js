@@ -4,7 +4,12 @@ import styled from "styled-components";
 const Navbar = () => {
   return (
     <Nav>
-      <span>Recruite.it</span>
+      <span
+        style={{ cursor: "pointer" }}
+        onClick={() => (window.location.href = "/")}
+      >
+        Recruite.it
+      </span>
     </Nav>
   );
 };

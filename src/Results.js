@@ -10,7 +10,12 @@ const Results = () => {
   return (
     <Grid>
       <Nav>
-        <header>Recruite.it</header>
+        <header
+          style={{ cursor: "pointer" }}
+          onClick={() => (window.location.href = "/")}
+        >
+          Recruite.it
+        </header>
         <Form buttonText={"Make another search"} />
       </Nav>
       <div>

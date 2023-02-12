@@ -22,7 +22,14 @@ const UserCard = (props) => {
           alt="user avatar"
         />
         <h3>{login}</h3>
-        <div>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            flexWrap: "wrap",
+          }}
+        >
           <Tag text={language} type="language" />
           <Tag text={position} type="position" />
         </div>
