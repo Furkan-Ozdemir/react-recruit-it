@@ -40,7 +40,7 @@ const Form = (props) => {
               setPosition(e.target.value);
             }}
             value={position}
-            autocomplete="off"
+            autoComplete="off"
           />
 
           <input
@@ -52,7 +52,7 @@ const Form = (props) => {
               setLanguage(e.target.value);
             }}
             value={language}
-            autocomplete="off"
+            autoComplete="off"
           />
         </BoxShadow>
         <Button type="submit" value="Search" onClick={handleFetch}>
